@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upcoming Exam Dates and Countdowns</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f2f8ff, #e0e7ff);
+      color: #333;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #0645AD;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 800px;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.1rem;
+    }
+
+    th {
+      background: linear-gradient(45deg, #0645AD, #0a6dd6);
+      color: white;
+      text-transform: uppercase;
+    }
+
+    tr:hover {
+      background-color: #f0f4ff;
+    }
+
+    .countdown {
+      font-weight: bold;
+      background: #007BFF;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .countdown.exam-day {
+      background: #28a745;
+    }
+
+    .countdown.completed {
+      background: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upcoming Exam Dates and Countdowns</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Exam</th>
+        <th>Date</th>
+        <th>Countdown</th>
+      </tr>
+    </thead>
+    <tbody id="countdown-table"></tbody>
+  </table>
+
+  <script>
+    const exams = [
+      { name: "RRB PO Prelims", date: "2025-07-27" },
+      { name: "RRB PO Mains", date: "2025-09-13" },
+      { name: "RRB Clerk Prelims", date: "2025-08-30" },
+      { name: "RRB Clerk Mains", date: "2025-11-09" },
+      { name: "IBPS PO Prelims", date: "2025-10-04" },
+      { name: "SSC CGL Tier-1", date: "2025-08-13" },
+      { name: "SSC CHSL Tier-1", date: "2025-09-08" },
+      { name: "SSC CPO Tier-1", date: "2025-09-01" },
+      { name: "DP CONSTABLE", date: "2025-11-01" },
+      { name: "SSC GD", date: "2026-01-01" }
+    ];
+
+    const tableBody = document.getElementById("countdown-table");
+
+    function updateCountdown() {
+      tableBody.innerHTML = "";
+      const now = new Date();
+
+      exams.forEach(exam => {
+        const examDate = new Date(`${exam.date}T00:00:00`);
+        const timeDiff = examDate - now;
+
+        let countdownHTML = "";
+        let className = "";
+
+        if (timeDiff > 0) {
+          const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+          countdownHTML = `${days}d ${hours}h ${minutes}m`;
+        } else if (timeDiff > -86400000) {
+          countdownHTML = "Exam Day!";
+          className = "exam-day";
+        } else {
+          countdownHTML = "Completed";
+          className = "completed";
+        }
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${exam.name}</td>
+          <td>${examDate.toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' })}</td>
+          <td><span class="countdown ${className}">${countdownHTML}</span></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60 * 1000); // Update every minute
+  </script>
+</body>
+</html>
