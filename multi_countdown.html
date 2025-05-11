@@ -1,80 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Exam Countdowns</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      text-align: center;
-      padding: 40px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-    }
-    .countdown {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin: 20px auto;
-      padding: 20px;
-      width: 300px;
-    }
-    .label {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-    }
-    .time {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <h1>Exam Countdown Timers</h1>
-
-  <div class="countdown">
-    <div class="label">CGL Mains</div>
-    <div class="time" id="cgl"></div>
-  </div>
-
-  <div class="countdown">
-    <div class="label">CHSL Tier 1</div>
-    <div class="time" id="chsl"></div>
-  </div>
-
-  <script>
-    const events = {
-      cgl: new Date("2025-08-15T00:00:00").getTime(),
-      chsl: new Date("2025-10-01T00:00:00").getTime()
-    };
-
-    function updateAllCountdowns() {
-      const now = new Date().getTime();
-
-      for (let id in events) {
-        const distance = events[id] - now;
-        const el = document.getElementById(id);
-
-        if (distance < 0) {
-          el.innerText = "Started!";
-          continue;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exam countdown timer by Future Bankers">
+    <meta name="author" content="Tanu Garg">
+    <title>Exam Countdown - Future Bankers</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f2f8ff, #e0e7ff);
+            color: #333;
+            text-align: center;
+            padding: 40px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        h1 {
+            color: #0645AD;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
 
-        el.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      }
-    }
+        .empty-state {
+            margin: 30px auto;
+            max-width: 400px;
+            padding: 40px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-    updateAllCountdowns();
-    setInterval(updateAllCountdowns, 1000);
-  </script>
+        .empty-state img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .empty-state p {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .footer strong {
+            color: #0645AD;
+        }
+
+        .links a {
+            color: #0645AD;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ecf0f1;
+        }
+
+        body.dark-mode .empty-state {
+            background: rgba(255,255,255,0.1);
+        }
+
+        body.dark-mode .empty-state p {
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upcoming Exam Dates</h1>
+    
+    <div class="empty-state">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjNjQ2NDc3IiBkPSJNMTkgNUg1djE0aDd2Mkg1YTIgMiAwIDAgMS0yLTJWNWEyIDIgMCAwIDEgMi0yaDE0YTIgMiAwIDAgMSAyIDJ2N2gtMlY1em0tOCAxM1Y5LjU4bDUuNzUgNS43NUwxNy4xNiAxNkwxMiAxMC44NEw2Ljg0IDE2bDEuNDEgMS40MUwxMSAxNC40MlYxOGgyekIvPjwvc3ZnPg==" alt="Calendar icon">
+        <p>No upcoming exams scheduled</p>
+    </div>
+
+    <div class="footer">
+        Provided by <strong>Future Bankers – Tanu Garg</strong>
+        <div class="links">
+            <a href="https://linktr.ee/tanugarg01" target="_blank">LinkTree</a>
+            <a href="https://t.me/tanugarg01" target="_blank">Telegram</a>
+            <a href="https://youtube.com/@futurebankers01" target="_blank">YouTube</a>
+        </div>
+    </div>
+
+    <script>
+        // Empty exam list
+        const exams = [];
+        
+        // Dark mode toggle (preserved functionality)
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
