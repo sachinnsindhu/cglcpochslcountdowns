@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exam Countdowns</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    .countdown {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 20px auto;
+      padding: 20px;
+      width: 300px;
+    }
+    .label {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .time {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Exam Countdown Timers</h1>
+
+  <div class="countdown">
+    <div class="label">CGL Mains</div>
+    <div class="time" id="cgl"></div>
+  </div>
+
+  <div class="countdown">
+    <div class="label">CHSL Tier 1</div>
+    <div class="time" id="chsl"></div>
+  </div>
+
+  <script>
+    const events = {
+      cgl: new Date("2025-08-15T00:00:00").getTime(),
+      chsl: new Date("2025-10-01T00:00:00").getTime()
+    };
+
+    function updateAllCountdowns() {
+      const now = new Date().getTime();
+
+      for (let id in events) {
+        const distance = events[id] - now;
+        const el = document.getElementById(id);
+
+        if (distance < 0) {
+          el.innerText = "Started!";
+          continue;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        el.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+    }
+
+    updateAllCountdowns();
+    setInterval(updateAllCountdowns, 1000);
+  </script>
+</body>
+</html>
