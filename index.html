@@ -62,6 +62,36 @@
     .countdown.completed {
       background: #dc3545;
     }
+
+    .dark-mode {
+      background: #212529;
+      color: #f8f9fa;
+    }
+
+    .dark-mode table {
+      border-color: #495057;
+    }
+
+    .dark-mode th {
+      background: #343a40;
+    }
+
+    .dark-mode td {
+      border-color: #495057;
+    }
+
+    .toggle-btn {
+      margin-top: 40px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
 </head>
 <body>
@@ -76,6 +106,8 @@
     </thead>
     <tbody id="countdown-table"></tbody>
   </table>
+
+  <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
   <script>
     const exams = [
@@ -120,6 +152,10 @@
         `;
         tableBody.appendChild(row);
       });
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
     }
 
     updateCountdown();
