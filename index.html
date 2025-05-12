@@ -17,16 +17,21 @@
     }
 
     h1 {
-      color: #0645AD;
+      color: #000;
       font-size: 2.5rem;
-      margin-bottom: 30px; /* Adjusted spacing below heading */
+      margin-bottom: 30px;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-mode h1 {
+      color: #fff;
     }
 
     .table-wrapper {
       display: flex;
       justify-content: center;
       width: 100%;
-      margin-top: 40px; /* ✅ Space between heading and table */
+      margin-top: 40px;
       margin-bottom: 40px;
     }
 
@@ -253,7 +258,7 @@
     }
 
     updateCountdown();
-    setInterval(updateCountdown, 1000); // updates every second
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
