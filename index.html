@@ -3,29 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upcoming Exam Dates and Countdowns</title>
+  <title>SSC Exam Countdown</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #f2f8ff, #e0e7ff);
       color: #333;
       text-align: center;
-      padding: 40px;
-      transition: background 0.3s, color 0.3s;
+      margin: 0;
+      padding: 20px;
     }
 
     h1 {
       color: #0645AD;
       font-size: 2.5rem;
-      margin-bottom: 20px;
+      margin-bottom: 45px; /* space between heading and table */
+    }
+
+    .table-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
 
     table {
-      margin: 0 auto;
       border-collapse: collapse;
       width: 90%;
       max-width: 800px;
-      background-color: #fff;
+      background-color: #ffffff;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       overflow: hidden;
@@ -40,6 +47,7 @@
     th {
       background: linear-gradient(45deg, #0645AD, #0a6dd6);
       color: white;
+      font-weight: 600;
       text-transform: uppercase;
     }
 
@@ -49,11 +57,21 @@
 
     .countdown {
       font-weight: bold;
-      background: #007BFF;
       color: #fff;
-      padding: 6px 12px;
+      background: linear-gradient(45deg, #007BFF, #00c4b4);
+      padding: 8px 15px;
       border-radius: 20px;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 140px;
+    }
+
+    .countdown span {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px 8px;
+      border-radius: 10px;
+      font-size: 0.9em;
     }
 
     .countdown.exam-day {
@@ -64,76 +82,107 @@
       background: #dc3545;
     }
 
-    /* Dark mode styles */
-    .dark-mode {
-      background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
-      color: #f5f5f5;
-    }
-
-    .dark-mode table {
-      background-color: #333;
-      color: #f5f5f5;
-      box-shadow: none;
-    }
-
-    .dark-mode th {
-      background: linear-gradient(45deg, #222, #444);
-    }
-
-    .dark-mode tr:hover {
-      background-color: #3a3a3a;
-    }
-
-    .dark-mode .countdown {
-      background: #0066cc;
-    }
-
-    .dark-mode .countdown.exam-day {
-      background: #28a745;
-    }
-
-    .dark-mode .countdown.completed {
-      background: #dc3545;
-    }
-
-    /* Toggle button */
-    .toggle-btn {
-      margin-top: 30px;
-    }
-
-    #toggleDarkMode {
+    .dark-mode-toggle {
+      margin: 45px auto;
       padding: 10px 20px;
-      font-size: 16px;
-      background-color: #0645AD;
-      color: white;
+      font-size: 1rem;
+      background: #6c757d;
+      color: #fff;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s;
     }
 
-    #toggleDarkMode:hover {
-      background-color: #0a6dd6;
+    .dark-mode-toggle:hover {
+      background: #5a6268;
+    }
+
+    .error-message {
+      color: #dc3545;
+      font-size: 1rem;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    body.dark-mode {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #ecf0f1;
+    }
+
+    body.dark-mode table {
+      background: #34495e;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    body.dark-mode th {
+      background: linear-gradient(45deg, #3498db, #2980b9);
+    }
+
+    body.dark-mode tr:hover {
+      background: #3e5a74;
+    }
+
+    body.dark-mode .countdown {
+      background: linear-gradient(45deg, #3498db, #1abc9c);
+    }
+
+    body.dark-mode .countdown.exam-day {
+      background: #27ae60;
+    }
+
+    body.dark-mode .countdown.completed {
+      background: #c0392b;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+
+      .countdown {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        gap: 5px;
+        min-width: 100px;
+      }
+
+      .countdown span {
+        padding: 3px 6px;
+        font-size: 0.7em;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>SSC Upcoming Exam Countdowns</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Exam</th>
-        <th>Date</th>
-        <th>Countdown</th>
-      </tr>
-    </thead>
-    <tbody id="countdown-table"></tbody>
-  </table>
+  <h1>Upcoming SSC Exams Countdown</h1>
 
-  <!-- Toggle Button -->
-  <div class="toggle-btn">
-    <button id="toggleDarkMode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  <div class="table-wrapper">
+    <table role="grid" aria-label="SSC exam countdown table">
+      <thead>
+        <tr>
+          <th>Exam</th>
+          <th>Date</th>
+          <th>Time Left</th>
+        </tr>
+      </thead>
+      <tbody id="countdown-table"></tbody>
+    </table>
   </div>
+
+  <div id="error-message" class="error-message" style="display: none;">
+    Unable to load exam data. Please try refreshing the page or contact support.
+  </div>
+
+  <button onclick="toggleDarkMode()" class="dark-mode-toggle">Toggle Dark Mode</button>
 
   <script>
     const exams = [
@@ -145,58 +194,56 @@
     ];
 
     const tableBody = document.getElementById("countdown-table");
+    const errorMessage = document.getElementById("error-message");
 
     function updateCountdown() {
-      tableBody.innerHTML = "";
-      const now = new Date();
+      try {
+        tableBody.innerHTML = "";
+        const now = new Date();
 
-      exams.forEach(exam => {
-        const examDate = new Date(`${exam.date}T00:00:00`);
-        const timeDiff = examDate - now;
+        exams.forEach(exam => {
+          const examDate = new Date(exam.date + "T00:00:00");
+          const diffTime = examDate.getTime() - now.getTime();
 
-        let countdownHTML = "";
-        let className = "";
+          const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+          const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
 
-        if (timeDiff > 0) {
-          const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
-          const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
-          countdownHTML = `${days}d ${hours}h ${minutes}m`;
-        } else if (timeDiff > -86400000) {
-          countdownHTML = "Exam Day!";
-          className = "exam-day";
-        } else {
-          countdownHTML = "Completed";
-          className = "completed";
-        }
+          let countdownText = "";
+          let countdownClass = "";
 
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${exam.name}</td>
-          <td>${examDate.toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' })}</td>
-          <td><span class="countdown ${className}">${countdownHTML}</span></td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
+          if (diffTime > 0) {
+            countdownText = `<span>${diffDays}d</span> <span>${diffHours}h</span> <span>${diffMinutes}m</span>`;
+          } else if (diffTime > -86400000) {
+            countdownText = "Exam Day!";
+            countdownClass = "exam-day";
+          } else {
+            countdownText = "Completed";
+            countdownClass = "completed";
+          }
 
-    // Dark mode toggle
-    function toggleDarkMode() {
-      const isDark = document.body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", isDark);
-      document.getElementById("toggleDarkMode").innerText = isDark ? "Switch to Light Mode" : "Switch to Dark Mode";
-    }
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${exam.name}</td>
+            <td>${examDate.toLocaleDateString("en-IN", { day: '2-digit', month: 'long', year: 'numeric' })}</td>
+            <td><span class="countdown ${countdownClass}">${countdownText}</span></td>
+          `;
+          tableBody.appendChild(row);
+        });
 
-    // On load, apply dark mode if previously set
-    window.addEventListener("DOMContentLoaded", () => {
-      const isDark = localStorage.getItem("darkMode") === "true";
-      if (isDark) {
-        document.body.classList.add("dark-mode");
-        document.getElementById("toggleDarkMode").innerText = "Switch to Light Mode";
+        errorMessage.style.display = "none";
+      } catch (error) {
+        console.error("Error updating countdown:", error);
+        errorMessage.style.display = "block";
       }
-      updateCountdown();
-      setInterval(updateCountdown, 60 * 1000); // Update every minute
-    });
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000); // updates every second
   </script>
 </body>
 </html>
