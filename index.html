@@ -1,202 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upcoming Exam Dates and Countdowns</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: f2f8ff;
-      color: #333;
-      text-align: center;
-      padding: 40px;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    h1 {
-      color: #0645AD;
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    table {
-      margin: 32px auto;
-      border-collapse: collapse;
-      width: 90%;
-      max-width: 800px;
-      background-color: #ffffff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    th, td {
-      padding: 12px 15px;
-      border-bottom: 1px solid #ddd;
-      font-size: 1.1rem;
-    }
-
-    th {
-      background: 0645AD;
-      color: white;
-      text-transform: uppercase;
-    }
-
-    tr:hover {
-      background-color: ##f1f1f1;
-    }
-
-    .countdown {
-      font-weight: bold;
-      background: #007BFF;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      display: inline-block;
-    }
-
-    .countdown.exam-day {
-      background: #28a745;
-    }
-
-    .countdown.completed {
-      background: #dc3545;
-    }
-
-    /* Dark mode styles */
-    .dark-mode {
-      background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
-      color: #f5f5f5;
-    }
-
-    .dark-mode table {
-      background-color: #333;
-      color: #f5f5f5;
-      box-shadow: none;
-    }
-
-    .dark-mode th {
-      background: linear-gradient(45deg, #222, #444);
-    }
-
-    .dark-mode tr:hover {
-      background-color: #3a3a3a;
-    }
-
-    .dark-mode .countdown {
-      background: #0066cc;
-    }
-
-    .dark-mode .countdown.exam-day {
-      background: #28a745;
-    }
-
-    .dark-mode .countdown.completed {
-      background: #dc3545;
-    }
-
-    /* Toggle button */
-    .toggle-btn {
-      margin-top: 30px;
-    }
-
-    #toggleDarkMode {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #0645AD;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    #toggleDarkMode:hover {
-      background-color: #0a6dd6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Bank Exam Countdown - Future Bankers</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f8ff;
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+        h1 {
+            color: #0645AD;
+            font-size: 32px;
+        }
+        table {
+            margin: 30px auto;
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 800px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #0645AD;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #555;
+        }
+        .links a {
+            display: inline-block;
+            margin: 8px 12px;
+            text-decoration: none;
+            color: #0645AD;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-  <h1>SSC Upcoming Exam Countdowns</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Exam</th>
-        <th>Date</th>
-        <th>Countdown</th>
-      </tr>
-    </thead>
-    <tbody id="countdown-table"></tbody>
-  </table>
+    <h1>Upcoming Bank Exams Countdown</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Exam</th>
+                <th>Date</th>
+                <th>Days Left</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td>LIC AAO Prelims</td>
+            <td>05 July 2025</td>
+            <td>67 days</td>
+        </tr>
+    
+        <tr>
+            <td>LIC AAO Mains</td>
+            <td>10 August 2025</td>
+            <td>103 days</td>
+        </tr>
+    
+        <tr>
+            <td>RRB PO Prelims</td>
+            <td>27 July 2025</td>
+            <td>89 days</td>
+        </tr>
+    
+        <tr>
+            <td>RRB PO Mains</td>
+            <td>13 September 2025</td>
+            <td>137 days</td>
+        </tr>
+    
+        <tr>
+            <td>RRB Clerk Prelims</td>
+            <td>30 August 2025</td>
+            <td>123 days</td>
+        </tr>
+    
+        <tr>
+            <td>RRB Clerk Mains</td>
+            <td>09 November 2025</td>
+            <td>194 days</td>
+        </tr>
+    
+        <tr>
+            <td>IBPS PO Prelims</td>
+            <td>04 October 2025</td>
+            <td>158 days</td>
+        </tr>
+    
+        <tr>
+            <td>IBPS PO Mains</td>
+            <td>29 November 2025</td>
+            <td>214 days</td>
+        </tr>
+    
+        <tr>
+            <td>IBPS Clerk Prelims</td>
+            <td>06 December 2025</td>
+            <td>221 days</td>
+        </tr>
+    
+        <tr>
+            <td>IBPS Clerk Mains</td>
+            <td>01 February 2026</td>
+            <td>278 days</td>
+        </tr>
+    
+        </tbody>
+    </table>
 
-  <!-- Toggle Button -->
-  <div class="toggle-btn">
-    <button id="toggleDarkMode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-  </div>
-
-  <script>
-    const exams = [
-      { name: "SSC CGL Tier-1", date: "2025-08-13" },
-      { name: "SSC CHSL Tier-1", date: "2025-09-08" },
-      { name: "SSC CPO Tier-1", date: "2025-09-01" },
-      { name: "DP CONSTABLE", date: "2025-11-01" },
-      { name: "SSC GD", date: "2026-01-01" }
-    ];
-
-    const tableBody = document.getElementById("countdown-table");
-
-    function updateCountdown() {
-      tableBody.innerHTML = "";
-      const now = new Date();
-
-      exams.forEach(exam => {
-        const examDate = new Date(`${exam.date}T00:00:00`);
-        const timeDiff = examDate - now;
-
-        let countdownHTML = "";
-        let className = "";
-
-        if (timeDiff > 0) {
-          const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
-          const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
-          countdownHTML = `${days}d ${hours}h ${minutes}m`;
-        } else if (timeDiff > -86400000) {
-          countdownHTML = "Exam Day!";
-          className = "exam-day";
-        } else {
-          countdownHTML = "Completed";
-          className = "completed";
-        }
-
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${exam.name}</td>
-          <td>${examDate.toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' })}</td>
-          <td><span class="countdown ${className}">${countdownHTML}</span></td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
-
-    // Dark mode toggle
-    function toggleDarkMode() {
-      const isDark = document.body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", isDark);
-      document.getElementById("toggleDarkMode").innerText = isDark ? "Switch to Light Mode" : "Switch to Dark Mode";
-    }
-
-    // On load, apply dark mode if previously set
-    window.addEventListener("DOMContentLoaded", () => {
-      const isDark = localStorage.getItem("darkMode") === "true";
-      if (isDark) {
-        document.body.classList.add("dark-mode");
-        document.getElementById("toggleDarkMode").innerText = "Switch to Light Mode";
-      }
-      updateCountdown();
-      setInterval(updateCountdown, 60 * 1000); // Update every minute
-    });
-  </script>
+    <div class="footer">
+        Provided by <strong>Future Bankers – Tanu Garg</strong>
+        <div class="links">
+            <a href="https://linktr.ee/tanugarg01" target="_blank">LinkTree</a> |
+            <a href="https://t.me/tanugarg01" target="_blank">Telegram</a> |
+            <a href="https://youtube.com/@futurebankers01" target="_blank">YouTube</a> |
+            <a href="https://www.instagram.com/tanugarg01" target="_blank">Instagram</a> |
+            <a href="https://www.instagram.com/tanugarrgg01" target="_blank">Banking Instagram</a>
+        </div>
+    </div>
 </body>
 </html>
