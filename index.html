@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -16,150 +17,156 @@
       padding: 20px;
     }
 
-    h1 {
-      color: #0645AD;
-      font-size: 2.5rem;
-      margin-bottom: 45px; /* space between heading and table */
-    }
+```
+h1 {
+  color: #0645AD;
+  font-size: 2.5rem;
+  margin-bottom: 80px; /* Increased space below heading */
+}
 
-    .table-wrapper {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 40px; /* Added space below table */
+}
 
-    table {
-      border-collapse: collapse;
-      width: 90%;
-      max-width: 800px;
-      background-color: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      overflow: hidden;
-    }
+table {
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 800px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-    th, td {
-      padding: 15px;
-      border-bottom: 1px solid #ddd;
-      font-size: 1.1rem;
-    }
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.1rem;
+  vertical-align: middle;
+  text-align: center;
+}
 
-    th {
-      background: linear-gradient(45deg, #0645AD, #0a6dd6);
-      color: white;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
+th {
+  background: linear-gradient(45deg, #0645AD, #0a6dd6);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 
-    tr:hover {
-      background-color: #f0f4ff;
-    }
+tr:hover {
+  background-color: #f0f4ff;
+}
 
-    .countdown {
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(45deg, #007BFF, #00c4b4);
-      padding: 8px 15px;
-      border-radius: 20px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-width: 140px;
-    }
+.countdown {
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #007BFF, #00c4b4);
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+}
 
-    .countdown span {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 4px 8px;
-      border-radius: 10px;
-      font-size: 0.9em;
-    }
+.countdown span {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
 
-    .countdown.exam-day {
-      background: #28a745;
-    }
+.countdown.exam-day {
+  background: #28a745;
+}
 
-    .countdown.completed {
-      background: #dc3545;
-    }
+.countdown.completed {
+  background: #dc3545;
+}
 
-    .dark-mode-toggle {
-      margin: 45px auto;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: #6c757d;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.dark-mode-toggle {
+  margin: 30px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    .dark-mode-toggle:hover {
-      background: #5a6268;
-    }
+.dark-mode-toggle:hover {
+  background: #5a6268;
+}
 
-    .error-message {
-      color: #dc3545;
-      font-size: 1rem;
-      margin: 20px auto;
-      max-width: 800px;
-    }
+.error-message {
+  color: #dc3545;
+  font-size: 1rem;
+  margin: 20px auto;
+  max-width: 800px;
+}
 
-    body.dark-mode {
-      background: linear-gradient(135deg, #2c3e50, #34495e);
-      color: #ecf0f1;
-    }
+body.dark-mode {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #ecf0f1;
+}
 
-    body.dark-mode table {
-      background: #34495e;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
+body.dark-mode table {
+  background: #34495e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
 
-    body.dark-mode th {
-      background: linear-gradient(45deg, #3498db, #2980b9);
-    }
+body.dark-mode th {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+}
 
-    body.dark-mode tr:hover {
-      background: #3e5a74;
-    }
+body.dark-mode tr:hover {
+  background: #3e5a74;
+}
 
-    body.dark-mode .countdown {
-      background: linear-gradient(45deg, #3498db, #1abc9c);
-    }
+body.dark-mode .countdown {
+  background: linear-gradient(45deg, #3498db, #1abc9c);
+}
 
-    body.dark-mode .countdown.exam-day {
-      background: #27ae60;
-    }
+body.dark-mode .countdown.exam-day {
+  background: #27ae60;
+}
 
-    body.dark-mode .countdown.completed {
-      background: #c0392b;
-    }
+body.dark-mode .countdown.completed {
+  background: #c0392b;
+}
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
 
-      table {
-        width: 100%;
-      }
+  table {
+    width: 100%;
+  }
 
-      th, td {
-        padding: 10px;
-        font-size: 0.9rem;
-      }
+  th, td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 
-      .countdown {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-        gap: 5px;
-        min-width: 100px;
-      }
+  .countdown {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    gap: 5px;
+    min-width: 100px;
+  }
 
-      .countdown span {
-        padding: 3px 6px;
-        font-size: 0.7em;
-      }
-    }
+  .countdown span {
+    padding: 3px 6px;
+    font-size: 0.7em;
+  }
+}
+```
+
   </style>
 </head>
 <body>
@@ -182,7 +189,7 @@
     Unable to load exam data. Please try refreshing the page or contact support.
   </div>
 
-  <button onclick="toggleDarkMode()" class="dark-mode-toggle">Toggle Dark Mode</button>
+<button onclick="toggleDarkMode()" class="dark-mode-toggle">Toggle Dark Mode</button>
 
   <script>
     const exams = [
@@ -195,6 +202,12 @@
 
     const tableBody = document.getElementById("countdown-table");
     const errorMessage = document.getElementById("error-message");
+
+    function formatDateIndianStyle(dateObj) {
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      const parts = dateObj.toLocaleDateString("en-IN", options).split(" ");
+      return `${parts[0]}<br>${parts[1]}<br>${parts[2]}`;
+    }
 
     function updateCountdown() {
       try {
@@ -225,7 +238,7 @@
           const row = document.createElement("tr");
           row.innerHTML = `
             <td>${exam.name}</td>
-            <td>${examDate.toLocaleDateString("en-IN", { day: '2-digit', month: 'long', year: 'numeric' })}</td>
+            <td>${formatDateIndianStyle(examDate)}</td>
             <td><span class="countdown ${countdownClass}">${countdownText}</span></td>
           `;
           tableBody.appendChild(row);
@@ -245,5 +258,6 @@
     updateCountdown();
     setInterval(updateCountdown, 1000); // updates every second
   </script>
+
 </body>
 </html>
