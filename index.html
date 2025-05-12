@@ -11,6 +11,7 @@
       color: #333;
       text-align: center;
       padding: 40px;
+      transition: background 0.3s, color 0.3s;
     }
 
     h1 {
@@ -62,6 +63,58 @@
     .countdown.completed {
       background: #dc3545;
     }
+
+    /* Dark mode styles */
+    .dark-mode {
+      background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+      color: #f5f5f5;
+    }
+
+    .dark-mode table {
+      background-color: #333;
+      color: #f5f5f5;
+      box-shadow: none;
+    }
+
+    .dark-mode th {
+      background: linear-gradient(45deg, #222, #444);
+    }
+
+    .dark-mode tr:hover {
+      background-color: #3a3a3a;
+    }
+
+    .dark-mode .countdown {
+      background: #0066cc;
+    }
+
+    .dark-mode .countdown.exam-day {
+      background: #28a745;
+    }
+
+    .dark-mode .countdown.completed {
+      background: #dc3545;
+    }
+
+    /* Toggle button */
+    .toggle-btn {
+      margin-top: 30px;
+    }
+
+    #toggleDarkMode {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0645AD;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #toggleDarkMode:hover {
+      background-color: #0a6dd6;
+    }
   </style>
 </head>
 <body>
@@ -76,6 +129,11 @@
     </thead>
     <tbody id="countdown-table"></tbody>
   </table>
+
+  <!-- Toggle Button -->
+  <div class="toggle-btn">
+    <button id="toggleDarkMode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </div>
 
   <script>
     const exams = [
@@ -122,8 +180,23 @@
       });
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 60 * 1000); // Update every minute
+    // Dark mode toggle
+    function toggleDarkMode() {
+      const isDark = document.body.classList.toggle("dark-mode");
+      localStorage.setItem("darkMode", isDark);
+      document.getElementById("toggleDarkMode").innerText = isDark ? "Switch to Light Mode" : "Switch to Dark Mode";
+    }
+
+    // On load, apply dark mode if previously set
+    window.addEventListener("DOMContentLoaded", () => {
+      const isDark = localStorage.getItem("darkMode") === "true";
+      if (isDark) {
+        document.body.classList.add("dark-mode");
+        document.getElementById("toggleDarkMode").innerText = "Switch to Light Mode";
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 60 * 1000); // Update every minute
+    });
   </script>
 </body>
 </html>
