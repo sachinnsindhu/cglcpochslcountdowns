@@ -1,202 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upcoming Exam Dates and Countdowns</title>
+  <meta charset="UTF-8">
+  <title>Upcoming Bank Exams Countdown</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #f2f8ff, #e0e7ff);
-      color: #333;
-      text-align: center;
-      padding: 40px;
-      transition: background 0.3s, color 0.3s;
+      font-family: Arial, sans-serif;
+      background: #f0f4ff;
+      color: #000;
+      margin: 0;
+      padding: 0;
     }
 
     h1 {
-      color: #0645AD;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      text-align: center;
+      padding: 20px;
+      color: #0047ab;
     }
 
     table {
+      width: 90%;
       margin: 0 auto;
       border-collapse: collapse;
-      width: 90%;
-      max-width: 800px;
-      background-color: #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+      background: #ffffff;
+      border-radius: 10px;
       overflow: hidden;
-    }
-
-    th, td {
-      padding: 15px;
-      border-bottom: 1px solid #ddd;
-      font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     th {
-      background: linear-gradient(45deg, #0645AD, #0a6dd6);
+      background: #0047ab;
       color: white;
-      text-transform: uppercase;
+      padding: 15px;
+      font-size: 1em;
     }
 
-    tr:hover {
-      background-color: #f0f4ff;
+    td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
     }
 
     .countdown {
-      font-weight: bold;
-      background: #007BFF;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .countdown.exam-day {
-      background: #28a745;
-    }
-
-    .countdown.completed {
-      background: #dc3545;
-    }
-
-    /* Dark mode styles */
-    .dark-mode {
-      background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
-      color: #f5f5f5;
-    }
-
-    .dark-mode table {
-      background-color: #333;
-      color: #f5f5f5;
-      box-shadow: none;
-    }
-
-    .dark-mode th {
-      background: linear-gradient(45deg, #222, #444);
-    }
-
-    .dark-mode tr:hover {
-      background-color: #3a3a3a;
-    }
-
-    .dark-mode .countdown {
-      background: #0066cc;
-    }
-
-    .dark-mode .countdown.exam-day {
-      background: #28a745;
-    }
-
-    .dark-mode .countdown.completed {
-      background: #dc3545;
-    }
-
-    /* Toggle button */
-    .toggle-btn {
-      margin-top: 30px;
-    }
-
-    #toggleDarkMode {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #0645AD;
+    .pill {
+      background: linear-gradient(to right, #007acc, #00bcd4);
       color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
+      border-radius: 20px;
+      padding: 8px 14px;
+      font-size: 0.9em;
+      font-weight: bold;
+      min-width: 60px;
+      text-align: center;
     }
 
-    #toggleDarkMode:hover {
-      background-color: #0a6dd6;
+    @media (max-width: 768px) {
+      table, th, td {
+        font-size: 0.9em;
+      }
+
+      .pill {
+        font-size: 0.8em;
+        padding: 6px 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>SSC Upcoming Exam Countdowns</h1>
+
+  <h1>Upcoming Bank Exams Countdown</h1>
+
   <table>
     <thead>
       <tr>
-        <th>Exam</th>
-        <th>Date</th>
-        <th>Countdown</th>
+        <th>EXAM</th>
+        <th>DATE</th>
+        <th>TIME LEFT</th>
       </tr>
     </thead>
-    <tbody id="countdown-table"></tbody>
+    <tbody>
+      <tr>
+        <td>RRB PO Prelims</td>
+        <td>27 July 2025</td>
+        <td class="countdown" id="rrbPoPrelims"></td>
+      </tr>
+      <tr>
+        <td>RRB PO Mains</td>
+        <td>13 September 2025</td>
+        <td class="countdown" id="rrbPoMains"></td>
+      </tr>
+      <tr>
+        <td>RRB Clerk Prelims</td>
+        <td>30 August 2025</td>
+        <td class="countdown" id="rrbClerkPrelims"></td>
+      </tr>
+      <tr>
+        <td>RRB Clerk Mains</td>
+        <td>09 November 2025</td>
+        <td class="countdown" id="rrbClerkMains"></td>
+      </tr>
+      <tr>
+        <td>IBPS PO Prelims</td>
+        <td>04 October 2025</td>
+        <td class="countdown" id="ibpsPoPrelims"></td>
+      </tr>
+      <tr>
+        <td>IBPS PO Mains</td>
+        <td>29 November 2025</td>
+        <td class="countdown" id="ibpsPoMains"></td>
+      </tr>
+      <tr>
+        <td>IBPS Clerk Prelims</td>
+        <td>06 December 2025</td>
+        <td class="countdown" id="ibpsClerkPrelims"></td>
+      </tr>
+      <tr>
+        <td>IBPS Clerk Mains</td>
+        <td>01 February 2026</td>
+        <td class="countdown" id="ibpsClerkMains"></td>
+      </tr>
+    </tbody>
   </table>
 
-  <!-- Toggle Button -->
-  <div class="toggle-btn">
-    <button id="toggleDarkMode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-  </div>
-
   <script>
-    const exams = [
-      { name: "SSC CGL Tier-1", date: "2025-08-13" },
-      { name: "SSC CHSL Tier-1", date: "2025-09-08" },
-      { name: "SSC CPO Tier-1", date: "2025-09-01" },
-      { name: "DP CONSTABLE", date: "2025-11-01" },
-      { name: "SSC GD", date: "2026-01-01" }
-    ];
+    const exams = {
+      rrbPoPrelims: "2025-07-27T00:00:00",
+      rrbPoMains: "2025-09-13T00:00:00",
+      rrbClerkPrelims: "2025-08-30T00:00:00",
+      rrbClerkMains: "2025-11-09T00:00:00",
+      ibpsPoPrelims: "2025-10-04T00:00:00",
+      ibpsPoMains: "2025-11-29T00:00:00",
+      ibpsClerkPrelims: "2025-12-06T00:00:00",
+      ibpsClerkMains: "2026-02-01T00:00:00"
+    };
 
-    const tableBody = document.getElementById("countdown-table");
+    function updateCountdowns() {
+      const now = new Date().getTime();
 
-    function updateCountdown() {
-      tableBody.innerHTML = "";
-      const now = new Date();
+      for (const id in exams) {
+        const target = new Date(exams[id]).getTime();
+        const diff = target - now;
 
-      exams.forEach(exam => {
-        const examDate = new Date(`${exam.date}T00:00:00`);
-        const timeDiff = examDate - now;
+        const container = document.getElementById(id);
+        container.innerHTML = ""; // Clear previous
 
-        let countdownHTML = "";
-        let className = "";
+        if (diff > 0) {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
 
-        if (timeDiff > 0) {
-          const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
-          const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
-          countdownHTML = `${days}d ${hours}h ${minutes}m`;
-        } else if (timeDiff > -86400000) {
-          countdownHTML = "Exam Day!";
-          className = "exam-day";
+          container.innerHTML = `
+            <span class="pill">${days} days</span>
+            <span class="pill">${hours}h</span>
+            <span class="pill">${minutes}m</span>
+          `;
         } else {
-          countdownHTML = "Completed";
-          className = "completed";
+          container.innerHTML = `<span class="pill">Started</span>`;
         }
-
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${exam.name}</td>
-          <td>${examDate.toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' })}</td>
-          <td><span class="countdown ${className}">${countdownHTML}</span></td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
-
-    // Dark mode toggle
-    function toggleDarkMode() {
-      const isDark = document.body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", isDark);
-      document.getElementById("toggleDarkMode").innerText = isDark ? "Switch to Light Mode" : "Switch to Dark Mode";
-    }
-
-    // On load, apply dark mode if previously set
-    window.addEventListener("DOMContentLoaded", () => {
-      const isDark = localStorage.getItem("darkMode") === "true";
-      if (isDark) {
-        document.body.classList.add("dark-mode");
-        document.getElementById("toggleDarkMode").innerText = "Switch to Light Mode";
       }
-      updateCountdown();
-      setInterval(updateCountdown, 60 * 1000); // Update every minute
-    });
+    }
+
+    setInterval(updateCountdowns, 60000); // update every 60s
+    updateCountdowns();
   </script>
+
 </body>
 </html>
